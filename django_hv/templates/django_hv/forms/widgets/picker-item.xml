@@ -1,0 +1,1 @@
+<picker-item style="Form__PickerItem" label="{{ widget.label }}" value="{{ widget.value|stringformat:'s' }}" />

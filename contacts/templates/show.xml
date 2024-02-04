@@ -1,0 +1,24 @@
+{% extends 'layout.xml' %}
+{% block header %}
+    <text style="header-button">
+    <behavior trigger="press" action="back" href="#" />
+    Back
+    </text>
+    <text style="header-button">
+    <behavior trigger="press" action="reload" href="{{ contact.edit_url }}" />
+    Edit
+    </text>
+{% endblock %}
+{% block content %}
+    <view style="details">
+    <text style="contact-name">{{ contact.first_name }} {{ contact.last_name }}</text>
+    <view style="contact-section">
+    <text style="contact-section-label">Phone</text>
+    <text style="contact-section-info">{{ contact.phone_number }}</text>
+    </view>
+    <view style="contact-section">
+    <text style="contact-section-label">Email</text>
+    <text style="contact-section-info">{{ contact.email }}</text>
+    </view>
+    </view>
+{% endblock %}

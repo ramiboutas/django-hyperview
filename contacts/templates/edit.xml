@@ -1,0 +1,33 @@
+{% extends 'layout.xml' %}
+{% block header %}
+  <text style="header-button">
+  <behavior trigger="press" action="back" href="#" />
+  Back
+  </text>
+{% endblock %}
+{% block content %}
+  <form>
+    <view id="form-fields">
+    {% include 'form_fields.xml' %}
+    </view>
+    <view style="edit-group">
+    <view style="button">
+    <behavior trigger="press" action="replace-inner" target="form-fields" href="{{ contact.edit_url }}" verb="post" />
+    <text style="button-label">Save</text>
+    </view>
+    <view style="button">
+    <behavior trigger="press" action="reload" href="{{ contact.detail_url }}" />
+    <text style="button-label">Cancel</text>
+    </view>
+    <view style="button">
+    <behavior xmlns:alert="https://hyperview.org/hyperview-alert" trigger="press" action="alert" alert:title="Confirm delete" alert:message="Are you sure you want to delete {{ contact.first_name }}?">
+    <alert:option alert:label="Confirm">
+    <behavior trigger="press" action="append" target="form-fields" href="{{ contact.delete_url }}" verb="post" />
+    </alert:option>
+    <alert:option alert:label="Cancel" />
+    </behavior>
+    <text style="button-label button-label-delete">Delete Contact</text>
+    </view>
+    </view>
+  </form>
+{% endblock %}

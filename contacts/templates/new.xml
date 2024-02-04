@@ -1,0 +1,23 @@
+{% extends 'layout.xml' %}
+
+{% block header %}
+  <text style="header-button">
+    <behavior trigger="press" action="back" href="#" />
+    Back
+  </text>
+{% endblock %}
+
+{% block content %}
+<form>
+  <view id="form-fields">
+    {% include 'form_fields.xml' %}
+  </view>
+
+  <view style="edit-group">
+    <view style="button">
+      <behavior trigger="press" action="replace" target="form-fields" href="{% url 'contact-new' %}" verb="post" />
+      <text style="button-label">Add Contact</text>
+    </view>
+  </view>
+</form>
+{% endblock %}

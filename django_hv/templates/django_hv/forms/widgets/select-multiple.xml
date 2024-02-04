@@ -1,0 +1,9 @@
+<select-multiple {% if not "style" in widget.attrs %} style="Form__SelectMultiple"{% endif %} name="{{ widget.name }}" {% include "django_hv/forms/widgets/attrs.xml" %}>
+{% for group_name, group_choices, group_index in widget.optgroups %}
+    {% if group_index > 0 %}
+        {% for option in group_choices %}
+            {% include option.template_name with widget=option %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+</select-multiple>

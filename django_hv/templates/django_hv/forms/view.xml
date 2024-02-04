@@ -1,0 +1,23 @@
+{% if errors %}
+  <list style="Form__Errors">
+  {% for error in errors %}
+      <item>{{ error }}</item>
+  {% endfor %}
+  </list>
+{% endif %}
+{% if errors and not fields %}
+  <view>{% for field in hidden_fields %}{{ field }}{% endfor %}</view>
+{% endif %}
+{% for field, errors in fields %}
+  <view{% with style=field.css_classes %}{% if classes %} style="{{ style }}"{% else %} style="edit-field" {% endif %}{% endwith %}>
+    {% if errors %}
+      <list style="Form__FieldErrors">
+      {% for error in errors %}<item>{{ error }}</item>{% endfor %}
+      </list>
+    {% endif %}
+    {{ field }}
+  </view>
+{% endfor %}
+{% if not fields and not errors %}
+  {% for field in hidden_fields %}{{ field }}{% endfor %}
+{% endif %}

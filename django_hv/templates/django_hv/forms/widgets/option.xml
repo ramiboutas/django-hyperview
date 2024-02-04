@@ -1,0 +1,3 @@
+<option  {% if not "style" in widget.attrs %} style="Form__Option"{% endif %} value="{{ widget.value|stringformat:'s' }}" {% include "django_hv/forms/widgets/attrs.xml" %}>
+    <text>{{ widget.label }}</text>
+</option>

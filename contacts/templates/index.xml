@@ -1,0 +1,23 @@
+{% extends 'layout.xml' %}
+
+{% block header %}
+  <text style="header-title">
+  Contacts
+  </text>
+  <text style="header-button">
+  <behavior trigger="press" action="push" href="{% url 'contact-new' %}" />
+  Add
+  </text>
+{% endblock header %}
+{% block content %}
+  
+  <form>
+    <behavior trigger="on-event" event-name="contact-updated" action="replace-inner" target="contacts-list" href="{% url 'contact-index' %}?rows_only=true" verb="get" />
+    <text-field name="q" value="" placeholder="Search..." style="search-field">
+    <behavior trigger="change" action="replace-inner" target="contacts-list" href="{% url 'contact-index' %}?rows_only=true" verb="get" />
+    </text-field>
+    <list id="contacts-list" trigger="refresh" action="replace-inner" target="contacts-list" href="{% url 'contact-index' %}?rows_only=true">
+    {% include 'rows.xml' %}
+    </list>
+  </form>
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% if widget.label_text %}<text style="Form__PickerFieldText">{{ widget.label_text }}</text>{% endif %}
+<picker-field field-style="Form__PickerField" field-text-style="Form__PickerField__Text" name="{{ widget.name }}" {% include "django_hv/forms/widgets/attrs.xml" %}>
+{% for group_name, group_choices, group_index in widget.optgroups %}
+    {% if group_index > 0 %}
+        {% for option in group_choices %}
+            {% include option.template_name with widget=option %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+</picker-field>

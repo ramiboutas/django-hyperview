@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "checkJs": false,
+    "paths": {
+      "hyperview/*": ["./node_modules/hyperview/*"]
+    }
+  },
+  "exclude": ["**/*.js", "**/*.jsx"]
+}

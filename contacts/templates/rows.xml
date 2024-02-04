@@ -1,0 +1,22 @@
+<items xmlns="https://hyperview.org/hyperview">
+{% for contact in contacts %}
+  <item key="{{ contact.id }}" style="contact-item">
+  <behavior trigger="press" action="push" href="{{ contact.detail_url }}" />
+  <text style="contact-item-label">
+  {% if contact.first_name %}
+    {{ contact.first_name }} {{ contact.last_name }}
+  {% elif contact.phone_number %}
+    {{ contact.phone_number }}
+  {% elif contact.email %}
+    {{ contact.email }}
+  {% endif %}
+  </text>
+  </item>
+{% endfor %}
+{% if contacts.has_next %}
+  <item key="load-more" id="load-more" style="load-more-item">
+  <behavior trigger="visible" action="replace" target="load-more" href="{% url 'contact-index' %}?rows_only=true&amp;page={{contacts.next_page_number}}" verb="get" />
+  <spinner />
+  </item>
+{% endif %}
+</items>

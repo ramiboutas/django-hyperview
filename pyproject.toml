@@ -1,0 +1,31 @@
+[build-system]
+requires = ['setuptools>=61.0.0']
+build-backend = 'setuptools.build_meta'
+
+
+[project]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
+]
+
+name = "django-hyperview"
+version = "0.0.0"
+authors = [{ name = "Rami", email = "ramiboutas@protonmail.com" }]
+description = "Django extensions for Hyperview mobile apps"
+readme = "README.md"
+requires-python = ">=3.7"
+
+dependencies = ["django"]
+
+[tool.setuptools]
+
+packages = ["django_hv"]
+
+[project.urls]
+"Homepage" = "https://github.com/ramiboutas/django-hyperview"
+"Bug Tracker" = "https://github.com/ramiboutas/django-hyperview/issues"
+

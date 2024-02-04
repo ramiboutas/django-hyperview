@@ -1,0 +1,9 @@
+python-barcode[images]
+pillow
+faker
+django-cors-headers
+jinja2
+
+black
+ipython
+djlint
