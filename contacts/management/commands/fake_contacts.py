@@ -14,7 +14,7 @@ class Command(BaseCommand):
         self.stdout.write("Processing...")
         contacts = []
         fake = Faker()
-        for id in range(50):
+        for id in range(100):
             contacts.append(
                 Contact(
                     first_name=fake.first_name(),
@@ -24,3 +24,4 @@ class Command(BaseCommand):
                 )
             )
         Contact.objects.bulk_create(contacts)
+        self.stdout.write("Done!")
