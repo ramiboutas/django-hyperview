@@ -13,7 +13,7 @@ classifiers = [
 ]
 
 name = "django-hyperview"
-version = "0.0.1"
+version = "0.0.2"
 authors = [{ name = "Rami", email = "ramiboutas@protonmail.com" }]
 description = "Django extensions for Hyperview mobile apps"
 readme = "README.md"
