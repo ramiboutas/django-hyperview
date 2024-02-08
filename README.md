@@ -75,7 +75,7 @@ def contact_new(request):
             context["saved"] = True
             context["contact"] = form.save()
         response = render(request, "form_fields.xml", context)
-    return hv_reponde(response)
+    return hv_repond(response)
 
 ```
 
@@ -110,11 +110,11 @@ You can use this package for your views.
 from .models import Contact
 from .forms import ContactForm
 
-from django_hv.http import hv_reponde
+from django_hv.http import hv_repond
 
 def contact_detail(request, id):
     response = render(request, "show.xml", {"contact": Contact.objects.get(id=id)})
-    return hv_reponde(response)
+    return hv_repond(response)
 
 ```
 
@@ -129,7 +129,7 @@ For this to work, you need to add `HyperviewMiddleware` to `MIDDLEWARE`.
 def contact_detail(request, id):
     template = "show.xml" if request.hv else "show.html"
     response = render(request, template, {"contact": Contact.objects.get(id=id)})
-    return hv_reponde(response)
+    return hv_repond(response)
 
 
 ```

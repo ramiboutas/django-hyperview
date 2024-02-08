@@ -1,0 +1,2 @@
+include django_hv/templates/django_hv/*/*.xml
+include django_hv/templates/django_hv/*/*/*.xml
