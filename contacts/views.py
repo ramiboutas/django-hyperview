@@ -5,7 +5,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Contact
 from .forms import ContactForm
 
-from django_hv.http import hv_reponde
+from django_hv.http import hv_repond
 
 
 def contact_index(request):
@@ -31,12 +31,12 @@ def contact_index(request):
         contacts = paginator.page(paginator.num_pages)
     template_name = "rows.xml" if rows_only else "index.xml"
     response = render(request, template_name, {"contacts": contacts})
-    return hv_reponde(response)
+    return hv_repond(response)
 
 
 def contact_detail(request, id):
     response = render(request, "show.xml", {"contact": Contact.objects.get(id=id)})
-    return hv_reponde(response)
+    return hv_repond(response)
 
 
 def contact_edit(request, id):
@@ -51,13 +51,13 @@ def contact_edit(request, id):
             context["saved"] = True
         response = render(request, "form_fields.xml", context)
 
-    return hv_reponde(response)
+    return hv_repond(response)
 
 
 def contact_delete(request, id):
     Contact.objects.get(id=id).delete()
     response = render(request, "deleted.xml")
-    return hv_reponde(response)
+    return hv_repond(response)
 
 
 def contact_new(request):
@@ -71,4 +71,4 @@ def contact_new(request):
             context["contact"] = form.save()
         response = render(request, "form_fields.xml", context)
 
-    return hv_reponde(response)
+    return hv_repond(response)

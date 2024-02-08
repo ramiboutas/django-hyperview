@@ -5,7 +5,7 @@ from django.template.base import Template
 from django.template.response import TemplateResponse
 
 
-def hv_reponde(response: HttpResponse):
+def hv_repond(response: HttpResponse):
     response.headers["content-type"] = "application/vnd.hyperview+xml"
     return response
 
@@ -31,3 +31,6 @@ class HyperviewResponse(TemplateResponse):
             using=using,
             headers=headers,
         )
+
+        
+hv_reponde = hv_repond  # Calling this func 'hv_reponde' was a Typo. TODO: leave it as 'hv_repond' someday

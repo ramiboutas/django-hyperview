@@ -13,7 +13,7 @@ classifiers = [
 ]
 
 name = "django-hyperview"
-version = "0.0.0"
+version = "0.0.1"
 authors = [{ name = "Rami", email = "ramiboutas@protonmail.com" }]
 description = "Django extensions for Hyperview mobile apps"
 readme = "README.md"
@@ -22,8 +22,13 @@ requires-python = ">=3.7"
 dependencies = ["django"]
 
 [tool.setuptools]
+include-package-data = true
+packages = ["django_hv", "django_hv.templatetags", ]
 
-packages = ["django_hv"]
+
+[tool.setuptools.package-data]
+"django_hv.templates" = ["*.xml"]
+
 
 [project.urls]
 "Homepage" = "https://github.com/ramiboutas/django-hyperview"
