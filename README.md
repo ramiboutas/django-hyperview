@@ -110,11 +110,15 @@ You can use this package for your views.
 from .models import Contact
 from .forms import ContactForm
 
-from django_hv.http import hv_reponde
+from django_hv.http import hv_reponde, HyperviewResponse
 
 def contact_detail(request, id):
     response = render(request, "show.xml", {"contact": Contact.objects.get(id=id)})
     return hv_reponde(response)
+
+def contact_new(request):
+    ...
+    return HyperviewResponse(request, "new.xml", context={}) 
 
 ```
 
